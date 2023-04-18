@@ -9,7 +9,7 @@ const App = () => {
     const [mainText, setMainText] = useState('Currency')
     const [isOnline, setIsOnline] = useState(false)
 
-    const myWs = new WebSocket('ws://localhost:8080');
+    const myWs = new WebSocket('ws://localhost:8081');
 
     myWs.onopen = function () {
         setIsOnline(true)

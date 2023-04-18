@@ -34,9 +34,9 @@ class websocket extends Command
                     new \App\Helpers\Websocket()
                 )
             ),
-            8080
+            81
         );
-        $this->info('Websocket running at port 8080');
+        $this->info('Websocket running at port 8081');
         $server->run();
 
 
