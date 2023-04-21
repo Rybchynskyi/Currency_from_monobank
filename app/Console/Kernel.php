@@ -2,6 +2,7 @@
 
 namespace App\Console;
 
+use App\Helpers\Websocket;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 use Illuminate\Support\Facades\Storage;
@@ -17,6 +18,9 @@ class Kernel extends ConsoleKernel
             $url = 'https://api.monobank.ua/bank/currency';
             $data = file_get_contents($url);
             Storage::disk('local')->put('currency.json', $data);
+            function send($data, Websocket $websocket){
+                $websocket->sendToAll($data);
+            }
         })->everyFiveMinutes();
     }
 
